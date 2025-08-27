@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta name="description" content="">
+
+  <meta name="keywords" content="StreetCrafter, Street View Synthesis">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+  <title>ExtraGS: Unifying Geometric and Generative Priors for Robust Street View Extrapolation</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- <link rel="icon" href="./static/images/lidar_icon.webp"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  <script src="./static/js/event_handler.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+  <!-- <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script> -->
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+
+    <div class="navbar-brand">
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+
+        <span aria-hidden="true"></span>
+
+        <span aria-hidden="true"></span>
+
+        <span aria-hidden="true"></span>
+
+      </a>
+
+    </div>
+
+
+  </nav>
+
+
+  <!-- title -->
+  <section class="hero">
+
+    <div class="hero-body">
+
+      <div class="container is-max-desktop">
+
+        <div class="columns is-centered">
+
+          <div class="column has-text-centered">
+
+            <h1 class="title is-2 publication-title">
+
+              <span>ExtraGS: Geometric-Aware Trajectory Extrapolation  with Uncertainty-Guided Generative Priors
+              </span>
+
+            </h1>
+
+            <!-- <div class="title is-3">
+
+              <strong>CVPR 2025</strong>
+
+            </div> -->
+
+            <div class="is-size-5 publication-authors">
+
+              <span class="author-block">
+
+
+                <a href="https://wm-research.github.io/extrags">Kaiyuan Tan</a><sup>1,2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Yingying Shen</a><sup>2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Haohui Zhu</a><sup>2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Zhiwei Zhan</a><sup>2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Shan Zhao</a><sup>2</sup>,</span>  
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Mingfei Tu</a><sup>2</sup>,</span>
+              
+              <br>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Hongcheng Luo</a><sup>2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Haiyang Sun</a><sup>2,†</sup>,</span>
+              
+                <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Bing Wang</a><sup>2,✉</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Guang Chen</a><sup>2</sup>,</span>
+
+              <span class="author-block">
+
+                <a href="https://wm-research.github.io/extrags">Hangjun Ye</a><sup>2</sup></span>
+
+              
+
+            </div>
+
+            <div class="is-size-5 publication-authors">
+
+              <span class="author-block"><sup>1</sup>UIUC &nbsp&nbsp</span>
+
+              <span class="author-block"><sup>2</sup>Xiaomi EV &nbsp&nbsp</span>
+
+              <br>
+              <p></p>
+              <span class="author-block"><sup>†</sup>Project Leader.</span>
+              <span class="author-block"><sup>✉</sup>Corresponding Author.</span>
+               <br>
+
+                <div class="column has-text-centered">
+
+                  <div class="publication-links">
+
+                    <span class="link-block">
+
+                      <a href="https://wm-research.github.io/extrags/" class="external-link button is-normal is-rounded is-dark">
+
+                        <span class="icon">
+
+                          <i class="ai ai-arxiv"></i>
+
+                        </span>
+
+                        <span>Paper</span>
+
+                      </a>
+
+                    </span>
+
+                    <!-- Code Link. -->
+
+                    <span class="link-block">
+
+                      <a href="https://wm-research.github.io/extrags/" class="external-link button is-normal is-rounded is-dark">
+
+                        <span class="icon">
+
+                          <i class="fab fa-github"></i>
+
+                        </span>
+
+                        <span>Code</span>
+
+                      </a>
+
+                    </span>
+
+                    <span class="link-block">
+
+                      <a href="./#BibTeX" class="external-link button is-normal is-rounded is-dark">
+
+                        <span class="icon">
+
+                          <i class="fa fa-quote-left"></i>
+
+                        </span>
+
+                        <span>Cite</span>
+
+                      </a>
+
+                      <span>
+
+                  </div>
+
+                </div>
+
+                <!-- <span class="author-block"> -->
+
+                <!-- <hr style="width:100%;height:0.7px;background-color:rgba(0, 0, 0, 0.665);margin-top:1em"> -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+  </section>
+
+  <!-- abstract and pipeline -->
+  <section class="section">
+
+    <div class="container is-max-desktop">
+
+      <!-- Abstract. -->
+
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+
+          <h2 class="title is-3">Abstract</h2>
+
+          <div class="content has-text-justified">
+
+            <p>
+
+              Synthesizing realistic extrapolated views from recorded driving logs is critical for simulating driving scenes in autonomous vehicle systems, yet it remains a challenging task. Recent methods leverage generative priors to provide pseudo ground truth for extrapolated views, but naïve use of these priors often leads to degraded performance along the original trajectory and poor geometric consistency. To address these limitations, we propose ExtraGS, a holistic framework for trajectory extrapolation that integrates both geometric and generative priors. At the core of ExtraGS is a novel Road Surface Gaussian(RSG) representation based on a hybrid Gaussian-Signed Distance Function (SDF) design, enabling accurate modeling of road surface geometry. Furthermore, ExtraGS incorporates a self-supervised uncertainty estimation mechanism, allowing fine-grained control over the contribution of pretrained generative models. Extensive experiments on multiple datasets, diverse multi-camera setups, and various generative priors demonstrate that ExtraGS significantly enhances the realism and geometric consistency of extrapolated views, while preserving high fidelity along the original trajectory.
+
+              <br><br>
+
+            </p>
+
+          </div>
+
+          </object>
+
+        </div>
+
+      </div>
+
+      <img src="static/images/teaser_v7.png">
+
+      <p> <b>Top Left</b>: ExtraGS is a driving scene modeling framework that enables robust street view extrapolation. It adopts a holistic
+approach that integrates geometric priors, generative guidance, and uncertainty estimation to tackle the challenging problem of multi-view
+consistent extrapolation. <b>Top Right</b>: In closed-loop simulation, the self-driving agent generates multiple candidate planning trajectories
+from the original path. <b>Bottom</b>: ExtraGS renders multi-camera views along each trajectory, producing temporally and spatially consistent
+extrapolated scenes.
+      </p>
+
+<br><br>
+
+
+
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+
+          <h2 class="title is-3">Pipeline</h2>
+
+          </object>
+
+        </div>
+
+      </div>
+
+      <img src="static/images/pipeline_new_v2.png">
+
+      <p> <b>Left</b>: Our method decomposes driving scenes into specialized 3D Gaussian nodes based on their distinct
+        geometric
+        properties. A novel Road Surface Gaussian is proposed to capture the road surface geometry with a
+        dimension-reduced SDF, and the
+        appearance with planar 3D Gaussians. <b>Right Top</b>: We propose an uncertainty estimation method that
+        considers both occlusion and view deviation. <b>Right Bottom</b>: We leverage off-the-shelf generative models to
+        generate pseudo ground truth at extrapolated views. The estimated uncertainty
+        provides pixel level control to the information from the generative model.
+      </p>
+
+    </div>
+
+  </section>
+<br><br>
+
+  <section class="hero is-small">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Visualization of Estimated Uncertainty</h2>
+      <div class="item">
+        <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+          <source src="assets/nuscenes_uncertainty.mp4" type="video/mp4">
+        </video>
+        <p> <b>Left</b>: Noisy rendering at an extrapolated trajectory. <b>Right</b>: Estimated uncertainty. ExtraGS captures two types of uncertainty in extrapolated views: <i>Occlusion</i> and <i>Deviation</i>. This uncertainty guides the generative model to selectively synthesize content only at highly uncertain pixels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<br><br>
+
+  <!-- Visual Comparisons -->
+  <section class="hero is-small">
+
+    <!-- <section class="section"> -->
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Visual Comparisons</h2>
+        <hr>
+        <h4 class="subtitle is-5"><b>6-camera Extrapolation Results on the NuScenes Dataset</b>. All trajectories are
+          laterally shifted by 3m. We take OmniRe as our baseline method. </h3>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_86.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_78.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_87.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_605.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_440.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_412.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_410.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_409.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_263.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <hr>
+          <h4 class="subtitle is-5"><b>3-cam Extrapolation Results on the Waymo Open Dataset</b>. All trajectories are
+            laterally shifted by 3m. </h3>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                  <source src="assets/waymo_1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item">
+                <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                  <source src="assets/waymo_0.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <hr>
+
+
+      </div>
+
+  </section>
+
+  <!-- Visual Comparisons -->
+  <section class="hero is-small">
+
+    <!-- <section class="section"> -->
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Visual Comparisons with Other Reconstruction+Generation methods</h2>
+        <hr>
+        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the NuScenes Dataset</b>. We compare our results
+          with Recondreamer and Recondreamer++. We follow Recondreamer++ and present result on scene-0105, timestep
+          130-169 and laterally shift the trajectory by 3m. </h4>
+        <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item">
+          <img class='waymo_compare' src="assets/nuscenes_recondreamer.gif" alt="NuScenes reconstruction comparison"
+            style="width: 100%; height: auto;">
+
+        </div>
+
+        <hr>
+        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the Waymo Dataset</b>. We compare our results with StreetCrafter. For fair comparison, we use the same generative prior and apply either Street Gaussians or our ExtraGS framework. </h4>
+          <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
+            <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
+              <img src="static/images/comparison/090_190_streetcrafter.png" alt="Street Gaussians+Street Crafter">
+              <img src="static/images/comparison/090_190_extrags.png" alt="Ours+Street Crafter">
+              <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
+            </div>
+          </div> 
+      </div>
+    </div> 
+
+  </section>
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+
+    <div class="container is-max-desktop content">
+
+      <h2 class="title">BibTeX</h2>
+
+      <pre><code>@misc{tan2025extragsgeometricawaretrajectoryextrapolation,
+        title={ExtraGS: Geometric-Aware Trajectory Extrapolation with Uncertainty-Guided Generative Priors}, 
+        author={Kaiyuan Tan and Yingying Shen and Haohui Zhu and Zhiwei Zhan and Shan Zhao and Mingfei Tu and Hongcheng Luo and Haiyang Sun and Bing Wang and Guang Chen and Hangjun Ye},
+        year={2025},
+        eprint={2508.15529},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2508.15529} 
+}</code></pre>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="container">
+
+
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
