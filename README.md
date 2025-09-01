@@ -20,7 +20,7 @@ Synthesizing extrapolated views from recorded driving logs is critical for simul
 
 ## Overview
 <div align="center">
-<img src="static/images/pipeline_new_v2.png" width="1000">
+<img src="static/images/pipeline_aaai-min.png" width="1000">
 </div>
 
 <!-- ## News
